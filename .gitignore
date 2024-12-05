@@ -13,3 +13,6 @@
 # 忽略测试代码-整个文件夹
 # 将整个文件路径加进来
 /test-ex-do-no-git/
+/.idea/dash-project.iml
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/inspectionProfiles/Project_Default.xml
