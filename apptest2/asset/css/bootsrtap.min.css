@@ -1,0 +1,22 @@
+/* 基本下拉菜单样式 */
+.dash-dropdown {
+    width: 100%; /* 使下拉菜单宽度为100% */
+    margin-bottom: 10px; /* 下拉菜单之间的间距 */
+}
+
+/* 容器样式 */
+.dash-container {
+    padding: 10px; /* 容器内边距 */
+    border: 1px solid #ccc; /* 容器边框 */
+    border-radius: 4px; /* 边框圆角 */
+}
+
+/* 水平分割线样式 */
+.dash-hr {
+    margin: 20px 0; /* 分割线与上下内容的间距 */
+}
+
+/* fluid容器样式 */
+.dash-fluid-container {
+    padding: 0; /* fluid容器无内边距 */
+}
