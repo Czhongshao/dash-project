@@ -41,6 +41,5 @@ def input_to_output(input_value):
     '''
     return input_value
 
-
 if __name__ == '__main__':
     app.run_server(debug=True)
