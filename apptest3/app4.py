@@ -47,5 +47,6 @@ def input_to_output(n_clicks, value):
     if n_clicks:
         return value.upper()
 
+
 if __name__ == '__main__':
     app.run_server(debug=True)
