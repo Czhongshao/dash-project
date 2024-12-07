@@ -36,7 +36,6 @@ app.layout = html.Div(
     ]
 )
 
-
 @app.callback(
     Output('output-value', 'children'),
     Input('state-button', 'n_clicks'),
