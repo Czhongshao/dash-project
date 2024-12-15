@@ -7,7 +7,7 @@ app = dash.Dash(__name__)
 app.layout = html.Div(
     dbc.Container(
         [
-            html.Iframe(src='https://www.baidu.com/',
+            html.Iframe(src='https://www.bilibili.com/',
                         style={'width': '100%', 'height': '800px'})
         ]
     )
