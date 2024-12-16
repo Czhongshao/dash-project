@@ -18,3 +18,5 @@
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/.gitignore
 /.idea/other.xml
+/.idea/dataSources.xml
+/.idea/sqldialects.xml
