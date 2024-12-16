@@ -6,7 +6,8 @@ from dash import html
 from dash.dependencies import Input, Output, State
 from sqlalchemy import create_engine
 
-postgres_url = 'postgresql://postgres:666666@localhost:3306/Dash'
+# 确保数据库URL、用户名和密码是正确的
+postgres_url = 'mysql+pymysql://@localhost:3306/onlinetradingsystem'
 engine = create_engine(postgres_url)
 
 app = dash.Dash(__name__)
@@ -43,7 +44,8 @@ app.layout = html.Div(
 )
 def refresh_table_names(n_clicks):
     try:
-        table_names = pd.read_sql_query("SELECT table_name FROM information_schema.tables WHERE table_schema = 'public'", con=engine)
+        table_names_query = "SELECT  FROM onlinetradingsystem.users WHERE table_schema = 'public'"
+        table_names = pd.read_sql_query(table_names_query, con=engine)
         return [{'label': name, 'value': name} for name in table_names['table_name']]
     except Exception as e:
         print(e)
@@ -56,15 +58,11 @@ def refresh_table_names(n_clicks):
     prevent_initial_call=True
 )
 def query_data_records(n_clicks, value):
-    try:
-        if value:
-            query_result = pd.read_sql_query(f'SELECT * FROM {value} LIMIT 500', con=engine)
-            return html.Div(dbc.Table.from_dataframe(query_result, striped=True), style={'height': '600px', 'overflow': 'auto'})
-        else:
-            return dash.no_update
-    except Exception as e:
-        print(e)
-        return html.Div("查询失败，请检查表名是否正确。")
+    if value:
+        query_result = pd.read_sql_query(f'SELECT * FROM `{value}` LIMIT 500', con=engine)
+        return html.Div(dbc.Table.from_dataframe(query_result, striped=True), style={'height': '600px', 'overflow': 'auto'})
+    else:
+        return dash.no_update
 
 if __name__ == '__main__':
     app.run_server(debug=True)
